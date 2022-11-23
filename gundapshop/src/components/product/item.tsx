@@ -1,5 +1,6 @@
 import React from 'react';
-import { Product } from '../types';
+import { Link } from 'react-router-dom';
+import { Product } from '../../types';
 
 const ProductItem = ({
     category,
@@ -12,10 +13,12 @@ const ProductItem = ({
  }:Product) => {
     return (
         <li className="product-item">
+            <Link to ={`/products/${id}`}>
                 <p className="product-item__title">{title}</p>
                 <span className="product-item__price">₩{price}</span>
-            <img src={image}/>
+            <img className="product-item__image" src={image}/>
                 담기
+            </Link>
         </li>
     );
 };

@@ -3,8 +3,8 @@ import React from 'react';
 import GlobalLayout from './pages/_layout'
 
 const DynamicIndex = React.lazy(() => import('./pages/index'));
-const DynamicProductIndex = React.lazy(() => import('./pages/product/index'));
-const DynamicProductId = React.lazy(() => import('./pages/product/[id]'));
+const DynamicProductsIndex = React.lazy(() => import('./pages/products/index'));
+const DynamicProductsDetail = React.lazy(() => import('./pages/products/detail'));
 
 
 export const routes = [
@@ -13,14 +13,14 @@ export const routes = [
     element: <GlobalLayout />,
     children: [
       { path: '/', element: <DynamicIndex />, index: true},
-      { path: '/product', element: <DynamicProductIndex />, index: true},
-      { path: '/product/:id', element: <DynamicProductId />, },
+      { path: '/products', element: <DynamicProductsIndex />, index: true},
+      { path: '/products/:id', element: <DynamicProductsDetail />, },
     ]
   }
 ]
 
 export const pages = [
   { route: '/' },
-  { route: '/product' },
-  { route: '/product/:id' },
+  { route: '/products' },
+  { route: '/products/detail' },
 ]

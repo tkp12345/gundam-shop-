@@ -1,7 +1,7 @@
 import {QueryClient, useQuery} from "react-query";
 import {fetcher, QueryKeys} from "../../queryClient";
 import {Product} from "../../types";
-import ProductItem from "../../components/item";
+import ProductItem from "../../components/product/item";
 
 const ProductList = () => {
 
