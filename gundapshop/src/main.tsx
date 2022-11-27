@@ -1,14 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-import './scss/index.scss'
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+import "./scss/index.scss";
+import { BrowserRouter } from "react-router-dom";
+import { worker } from "./mocks/browser";
+import { RecoilRoot } from "recoil";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+if (import.meta.env.DEV) {
+  // const { worker } = "./mocks/browser";
+  worker.start();
+}
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
+    <RecoilRoot>
       <BrowserRouter>
-      <App />
+        <App />
       </BrowserRouter>
+    </RecoilRoot>
   </React.StrictMode>
-)
+);
