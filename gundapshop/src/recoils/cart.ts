@@ -17,7 +17,8 @@ export const cartItemSelector = selectorFamily<number | undefined, string>({
     (id: string) =>
     ({ get, set }, newValue) => {
       if (typeof newValue === "number") {
-        const newCart = get(cartState).set(id, newValue);
+        const newCart = new Map([...get(cartState)]);
+        newCart.set(id, newValue);
         set(cartState, newCart);
       }
     },

@@ -13,7 +13,7 @@ const ProductItem = ({
   createdAt,
 }: Product) => {
   const [cartAmount, setCartAmount] = useRecoilState(cartItemSelector(id));
-  const addToCart = () => setCartAmount(cartAmount || 0 + 1);
+  const addToCart = () => setCartAmount((prev) => (prev || 0) + 1);
 
   return (
     <li className="product-item">
