@@ -30,7 +30,7 @@ export const handlers = [
     return res();
   }),
   graphql.query(GET_CART, (req, res, ctx) => {
-    return res();
+    return res(ctx.data(cartData));
   }),
   graphql.mutation(ADD_CART, (req, res, ctx) => {
     const newData = { ...cartData };
